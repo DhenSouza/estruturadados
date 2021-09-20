@@ -6,6 +6,10 @@ public class Lista<T> {
 
 	private T[] elementos;
 	private Integer tamanho;
+	
+	public Lista() {
+		this.tamanho = 10;
+	}
 
 	public Lista(int capacidade) {
 		this.elementos = (T[]) new Object[capacidade];
@@ -49,9 +53,7 @@ public class Lista<T> {
 
 	// Adiciona elemento em qualquer posição sem perder elementos ja existentes
 	public boolean adiciona(int posicao, T elemento) {
-		if (!(posicao >= 0 && posicao < tamanho)) {
-			throw new IllegalArgumentException("Posição inválida!");
-		}
+		this.verificarPosicaoValida(posicao);
 
 		this.aumentaCapacidade();
 
@@ -66,10 +68,8 @@ public class Lista<T> {
 	}
 
 	public void removerElemento(int posicao) {
-		if (!(posicao >= 0 && posicao < tamanho)) {
-			throw new IllegalArgumentException("Posição inválida!");
-		}
-
+		this.verificarPosicaoValida(posicao);
+		
 		for (int i = posicao; i < tamanho - 1; i++) {
 			this.elementos[i] = this.elementos[i + 1];
 		}
@@ -83,9 +83,7 @@ public class Lista<T> {
 	}
 
 	public T busca(int posicao) {
-		if (!(posicao >= 0 && posicao < tamanho)) {
-			throw new IllegalArgumentException("Posição inválida!");
-		}
+		this.verificarPosicaoValida(posicao);
 		return this.elementos[posicao];
 	}
 
@@ -98,6 +96,10 @@ public class Lista<T> {
 		}
 		return -1;
 	}
+	
+	public boolean contem(T elemento) {
+		return busca(elemento) > -1;
+	}
 
 	private void aumentaCapacidade() {
 		if (this.tamanho == this.elementos.length) {
@@ -108,6 +110,12 @@ public class Lista<T> {
 			}
 
 			this.elementos = vetorNovo;
+		}
+	}
+	
+	public void verificarPosicaoValida(int posicao) {
+		if (!(posicao >= 0 && posicao < this.tamanho)) {
+			throw new IllegalArgumentException("Posição inválida!");
 		}
 	}
 
