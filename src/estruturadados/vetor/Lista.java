@@ -142,5 +142,9 @@ public class Lista<T> {
 	public boolean contem(T elemento) {
 		return busca(elemento) > -1;
 	}
+	
+	public T obtem(int posicao) {
+		return this.busca(posicao);
+	}
 
 }

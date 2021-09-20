@@ -19,7 +19,9 @@ public class Exercicio3 {
 		System.out.println(lista);
 		
 		lista.removerElemento("Elemento A");
-		System.out.println(lista);
+		String test = lista.obtem(0);
+		
+		System.out.println(test);
 	}
 
 }
