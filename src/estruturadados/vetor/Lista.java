@@ -6,9 +6,8 @@ public class Lista<T> {
 
 	private T[] elementos;
 	private Integer tamanho;
-	
+
 	public Lista() {
-		this.tamanho = 10;
 	}
 
 	public Lista(int capacidade) {
@@ -69,7 +68,7 @@ public class Lista<T> {
 
 	public void removerElemento(int posicao) {
 		this.verificarPosicaoValida(posicao);
-		
+
 		for (int i = posicao; i < tamanho - 1; i++) {
 			this.elementos[i] = this.elementos[i + 1];
 		}
@@ -96,7 +95,27 @@ public class Lista<T> {
 		}
 		return -1;
 	}
-	
+
+	public int ultimoIndice(T elemento) {
+		if (elemento == null) {
+			for (int i = this.tamanho - 1; i >= 0; i--) {
+				if (this.elementos[i] == null) {
+					return i;
+				}
+			}
+		} else {
+			for (int i = this.tamanho - 1; i >= 0; i--) {
+				if (elemento.equals(elementos[i])) {
+					return i;
+				}
+
+			}
+
+		}
+
+		return -1;
+	}
+
 	public boolean contem(T elemento) {
 		return busca(elemento) > -1;
 	}
@@ -112,7 +131,7 @@ public class Lista<T> {
 			this.elementos = vetorNovo;
 		}
 	}
-	
+
 	public void verificarPosicaoValida(int posicao) {
 		if (!(posicao >= 0 && posicao < this.tamanho)) {
 			throw new IllegalArgumentException("Posição inválida!");
