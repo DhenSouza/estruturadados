@@ -76,10 +76,10 @@ public class Lista<T> {
 		this.tamanho--;
 
 	}
-	
+
 	public void removerElemento(T elemento) {
 		int posicao = busca(elemento);
-		if(posicao > -1) {
+		if (posicao > -1) {
 			this.removerElemento(posicao);
 		}
 	}
@@ -142,9 +142,17 @@ public class Lista<T> {
 	public boolean contem(T elemento) {
 		return busca(elemento) > -1;
 	}
-	
+
 	public T obtem(int posicao) {
 		return this.busca(posicao);
+	}
+
+	public void limpar() {
+		for (int i = 0; i < tamanho; i++) {
+			elementos[i] = null;
+		}
+
+		this.tamanho = 0;
 	}
 
 }
