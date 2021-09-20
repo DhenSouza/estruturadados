@@ -49,14 +49,13 @@ public class testPalavras {
 	}
 
 	public static String ascii1(String word) {
-		for (int j = 7; j == word.length(); j--) {
-			//if (j <= word.length() / 2) {
-				int ascii = (int) word.charAt(j) - 1;
-				
-				word = word.replace(word.charAt(j), (char) ascii);
-			//}
-		}
 
+		for (int j = word.length() - 1; j >= (word.length() / 2); j--) {
+
+			int ascii = (int) word.charAt(j);
+			ascii -= 1;
+			word = word.replace(word.charAt(j), (char) ascii);
+		}
 		return word;
 	}
 

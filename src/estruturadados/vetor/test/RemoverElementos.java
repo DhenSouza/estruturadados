@@ -15,10 +15,15 @@ public class RemoverElementos {
 
 		System.out.println(vetor);
 		
-		vetor.removerElemento(1);
+		int posicao = vetor.busca("D");
+		
+		if (posicao > - 1) {
+			vetor.removerElemento(posicao);
+		} else {
+			System.out.println("Elemento Não existe no vetor");
+		}
 		
 		System.out.println(vetor);
-		
 		
 	}
 

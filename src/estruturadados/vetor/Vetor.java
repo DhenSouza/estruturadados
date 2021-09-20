@@ -62,10 +62,7 @@ public class Vetor {
 
 	// Adiciona elemento em qualquer posição sem perder elementos ja existentes
 	public boolean adiciona(int posicao, String elemento) {
-		if (!(posicao >= 0 && posicao < tamanho)) {
-			throw new IllegalArgumentException("Posição inválida!");
-		}
-
+		this.verificarPosicaoValida(posicao);
 		this.aumentaCapacidade();
 
 		for (int i = this.tamanho - 1; i >= posicao; i--) {
@@ -79,9 +76,7 @@ public class Vetor {
 	}
 
 	public void removerElemento(int posicao) {
-		if (!(posicao >= 0 && posicao < tamanho)) {
-			throw new IllegalArgumentException("Posição inválida!");
-		}
+		verificarPosicaoValida(posicao);
 
 		for (int i = posicao; i < tamanho - 1; i++) {
 			this.elementos[i] = this.elementos[i + 1];
@@ -121,6 +116,12 @@ public class Vetor {
 			}
 
 			this.elementos = vetorNovo;
+		}
+	}
+
+	public void verificarPosicaoValida(int posicao) {
+		if (!(posicao >= 0 && posicao < this.tamanho)) {
+			throw new IllegalArgumentException("Posição inválida!");
 		}
 	}
 
