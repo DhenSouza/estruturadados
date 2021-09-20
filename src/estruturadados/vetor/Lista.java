@@ -76,6 +76,13 @@ public class Lista<T> {
 		this.tamanho--;
 
 	}
+	
+	public void removerElemento(T elemento) {
+		int posicao = busca(elemento);
+		if(posicao > -1) {
+			this.removerElemento(posicao);
+		}
+	}
 
 	public Integer getTamanho() {
 		return tamanho;
@@ -96,30 +103,6 @@ public class Lista<T> {
 		return -1;
 	}
 
-	public int ultimoIndice(T elemento) {
-		if (elemento == null) {
-			for (int i = this.tamanho - 1; i >= 0; i--) {
-				if (this.elementos[i] == null) {
-					return i;
-				}
-			}
-		} else {
-			for (int i = this.tamanho - 1; i >= 0; i--) {
-				if (elemento.equals(elementos[i])) {
-					return i;
-				}
-
-			}
-
-		}
-
-		return -1;
-	}
-
-	public boolean contem(T elemento) {
-		return busca(elemento) > -1;
-	}
-
 	private void aumentaCapacidade() {
 		if (this.tamanho == this.elementos.length) {
 			T[] vetorNovo = (T[]) new Object[this.elementos.length * 2];
@@ -136,6 +119,28 @@ public class Lista<T> {
 		if (!(posicao >= 0 && posicao < this.tamanho)) {
 			throw new IllegalArgumentException("Posição inválida!");
 		}
+	}
+
+	public int ultimoIndice(T elemento) {
+		if (elemento == null) {
+			for (int i = this.tamanho - 1; i >= 0; i--) {
+				if (this.elementos[i] == null) {
+					return i;
+				}
+			}
+		} else {
+			for (int i = this.tamanho - 1; i >= 0; i--) {
+				if (elemento.equals(elementos[i])) {
+					return i;
+				}
+			}
+		}
+
+		return -1;
+	}
+
+	public boolean contem(T elemento) {
+		return busca(elemento) > -1;
 	}
 
 }
