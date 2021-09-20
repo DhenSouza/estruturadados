@@ -14,8 +14,13 @@ public class Exercicio4 {
 
 		lista.adiciona("Elemento A");
 		lista.adiciona("Elemento B");
+		lista.adiciona("Elemento C");
+		lista.adiciona("Elemento D");
+		lista.adiciona("Elemento E");
 		
 		System.out.println(lista.obtem(0));
+		System.out.println(lista.obtem(2));
+		System.out.println(lista.obtem(4));
 		
 	}
 
