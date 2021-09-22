@@ -5,8 +5,6 @@ import estruturadados.interfaces.IPilha;
 
 public class Pilha<T> extends EstruturaEstatica<T> implements IPilha<T> {
 
-	private T[] elementos;
-	private Integer tamanho;
 
 	public Pilha() {
 		super();
@@ -18,8 +16,7 @@ public class Pilha<T> extends EstruturaEstatica<T> implements IPilha<T> {
 
 	@Override
 	public void empilha(T elemento) {
-		// TODO Auto-generated method stub
-
+		this.adiciona(elemento);
 	}
 
 	@Override

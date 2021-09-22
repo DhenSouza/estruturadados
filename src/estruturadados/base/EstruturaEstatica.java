@@ -2,8 +2,8 @@ package estruturadados.base;
 
 public class EstruturaEstatica<T> {
 
-	private T[] elementos;
-	private Integer tamanho;
+	protected T[] elementos;
+	protected Integer tamanho;
 
 	@SuppressWarnings("unchecked")
 	public EstruturaEstatica(int capacidade) {
