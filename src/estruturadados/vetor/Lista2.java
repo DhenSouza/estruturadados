@@ -12,11 +12,11 @@ public class Lista2<T> extends EstruturaEstatica<T> {
 		super(capacidade);
 	}
 
-	public boolean adiciona(T elemento) throws Exception {
+	public boolean adiciona(T elemento) {
 		return super.adiciona(elemento);
 	}
 
-	public boolean adiciona(Integer posicao, T elemento) throws Exception {
+	public boolean adiciona(Integer posicao, T elemento){
 		return super.adiciona(posicao, elemento);
 	}
 
