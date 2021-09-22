@@ -110,7 +110,6 @@ public class Lista<T> {
 			for (int i = 0; i < this.elementos.length; i++) {
 				vetorNovo[i] = this.elementos[i];
 			}
-
 			this.elementos = vetorNovo;
 		}
 	}
