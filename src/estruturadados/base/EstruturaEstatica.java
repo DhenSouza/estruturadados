@@ -60,8 +60,7 @@ public class EstruturaEstatica<T> {
 	}
 
 	public boolean estaVazia() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.tamanho() == 0;
 	}
 
 	public Integer tamanho() {
@@ -73,6 +72,7 @@ public class EstruturaEstatica<T> {
 			throw new IllegalArgumentException("Posição inválida!");
 		}
 	}
+	
 
 	@Override
 	public String toString() {
