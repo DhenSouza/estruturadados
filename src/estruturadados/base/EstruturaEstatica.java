@@ -47,16 +47,15 @@ public class EstruturaEstatica<T> {
 
 	}
 
-	private void aumentaCapacidade() {
-		if (this.tamanho == this.elementos.length) {
-			T[] vetorNovo = (T[]) new Object[this.elementos.length * 2];
-
-			for (int i = 0; i < this.elementos.length; i++) {
-				vetorNovo[i] = this.elementos[i];
+	@SuppressWarnings("unchecked")
+	private void aumentaCapacidade(){
+		if (this.tamanho == this.elementos.length){
+			T[] elementosNovos = (T[]) new Object[this.elementos.length * 2];
+			for (int i=0; i<this.elementos.length; i++){
+				elementosNovos[i] = this.elementos[i];
 			}
-			this.elementos = vetorNovo;
+			this.elementos = elementosNovos;
 		}
-
 	}
 
 	public boolean estaVazia() {
