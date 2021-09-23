@@ -55,4 +55,50 @@ public class Livro {
 		return "Livro [nome=" + nome + ", isbn=" + isbn + ", anoLancamento=" + anoLancamento + ", autor=" + autor + "]";
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((anoLancamento == null) ? 0 : anoLancamento.hashCode());
+		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
+		result = prime * result + ((isbn == null) ? 0 : isbn.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Livro other = (Livro) obj;
+		if (anoLancamento == null) {
+			if (other.anoLancamento != null)
+				return false;
+		} else if (!anoLancamento.equals(other.anoLancamento))
+			return false;
+		if (autor == null) {
+			if (other.autor != null)
+				return false;
+		} else if (!autor.equals(other.autor))
+			return false;
+		if (isbn == null) {
+			if (other.isbn != null)
+				return false;
+		} else if (!isbn.equals(other.isbn))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		return true;
+	}
+	
+	
+	
+
 }

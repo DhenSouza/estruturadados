@@ -1,56 +1,66 @@
 package estruturadados.pilha.exercicios;
 
+import java.util.Scanner;
+
 import estruturadados.pilha.Pilha;
 
 public class Exercicio2 {
+	static Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) {
 
 		Pilha<Integer> par = new Pilha<>();
 
 		Pilha<Integer> impar = new Pilha<>();
+		for (int i = 1; i <= 10; i++) {
 
-		for (int i = 0; i < 11; i++) {
-			if (i % 2 == 0) {
-				par.empilha(i);
-			} else {
-				impar.empilha(i);
-			}
+			System.out.println("Entre com um número: ");
 
-			if (i == 0) {
-				if (par.estaVazia() && impar.estaVazia()) {
-					System.out.println("As pilhas estao nullas! ");
+			int num = scan.nextInt();
+
+			if (num == 0) {
+
+				// pilha par
+
+				Integer desempilhado = par.desempilha();
+
+				if (desempilhado == null) {
+					System.out.println("Pilha par vazia");
+				} else {
+					System.out.println("Desempilhando da pilha par: " + desempilhado);
 				}
-				par.desempilha();
-				impar.desempilha();
+
+				// pilha impar
+
+				desempilhado = impar.desempilha();
+
+				if (desempilhado == null) {
+					System.out.println("Pilha impar vazia");
+				} else {
+					System.out.println("Desempilhando da pilha impar: " + desempilhado);
+				}
+
+			} else if (num % 2 == 0) {
+				System.out.println("Número par, empilhando na pilha par: " + num);
+				par.empilha(num);
+			} else {
+				System.out.println("Número ímpar, empilhando na pilha ímpar: " + num);
+				impar.empilha(num);
 			}
-
 		}
 
-		System.out.println("Numeros PAR");
-		mostrarPar(par);
+		System.out.println("Desempilhando todos os numeros da pilha par: ");
 
-		System.out.println("Numero Impar");
-		mostrarImpar(impar);
+		while (!par.estaVazia()) {
 
-	}
-
-	public static Pilha<Integer> mostrarPar(Pilha<Integer> par) {
-
-		for (int i = 0; i < 11; i++) {
-			System.out.println(par);
+			System.out.println("Desempilhando um elemento da pilha Par " + par.desempilha());
 		}
 
-		return par;
-	}
+		while (!impar.estaVazia()) {
 
-	public static Pilha<Integer> mostrarImpar(Pilha<Integer> impar) {
-
-		for (int i = 0; i < 11; i++) {
-			System.out.println(impar);
+			System.out.println("Desempilhando um elemento da pilha Impar " + impar.desempilha());
 		}
 
-		return impar;
 	}
 
 }

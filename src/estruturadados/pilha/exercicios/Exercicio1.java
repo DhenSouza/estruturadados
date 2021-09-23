@@ -4,35 +4,41 @@ import java.util.Scanner;
 
 import estruturadados.pilha.Pilha;
 
-	
-
 public class Exercicio1 {
 	static Scanner scan = new Scanner(System.in);
-	
+
 	public static void main(String[] args) {
 		
-		/*System.out.println("Informe o tamanho da pilha");
-		Integer tam = scan.nextInt();*/
-		
-		Pilha<Integer> pilha = new Pilha<>(11);
-		
-		
-		for(int i=0; i<11; i++) {
-			if(i%2 == 0) {
-				pilha.empilha(i);
+		Pilha<Integer> pilha = new Pilha<>();
+
+		for (int i = 0; i < 11; i++) {
+			
+			System.out.println("Informe um numero");
+			Integer numero = scan.nextInt();
+			
+			if (numero % 2 == 0) {
+				pilha.empilha(numero);
 			} else {
 
-				if(pilha.estaVazia()) {
+				Integer desempilhado = pilha.desempilha();
+
+				if (desempilhado == null) {
 					System.out.println(" A pilha esta vazia!");
+				} else {
+					System.out.println("Numero Impar, desempilhando .. " + desempilhado);
 				}
-				pilha.desempilha();
-				
+
 			}
-			
-			if(!pilha.estaVazia()) {
-				System.out.println(pilha);
-			}
+
 		}
 
+		System.out.println("Todos os numeros foram Lidos, desempilhando numeros da pilha");
+
+		while (!pilha.estaVazia()) {
+
+			System.out.println("Desempilhando um elemento da pilha " + pilha.desempilha());
+		}
+
+		System.out.println("Todos os elementos foram desempilhados");
 	}
 }
