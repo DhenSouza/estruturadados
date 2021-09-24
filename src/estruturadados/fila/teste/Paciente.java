@@ -1,8 +1,9 @@
 package estruturadados.fila.teste;
 
 public class Paciente implements Comparable<Paciente> {
-	
-	// Exempolo de compareTo, metodo que usa atributos da classe para comparar, facilitando tomadas de decisoes como um IF
+
+	// Exempolo de compareTo, metodo que usa atributos da classe para comparar,
+	// facilitando tomadas de decisoes como um IF
 
 	private String nome;
 	private Integer prioridade;
@@ -31,6 +32,11 @@ public class Paciente implements Comparable<Paciente> {
 
 	public void setPrioridade(Integer prioridade) {
 		this.prioridade = prioridade;
+	}
+
+	@Override
+	public String toString() {
+		return "Paciente [nome=" + nome + ", prioridade=" + prioridade + "]";
 	}
 
 	@Override
