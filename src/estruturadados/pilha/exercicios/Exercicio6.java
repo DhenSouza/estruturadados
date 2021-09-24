@@ -5,9 +5,9 @@ import estruturadados.pilha.Pilha;
 public class Exercicio6 {
 	public static void main(String[] args) {
 
+		imprimeResultado("{[()]}[](){()}");
 		imprimeResultado("A + B");
 		imprimeResultado("A + B + (C - D)");
-		imprimeResultado("{[()]}[](){()}");
 		imprimeResultado("{[(]}[](){()}");
 		imprimeResultado("A + B + C - D)");
 	}
