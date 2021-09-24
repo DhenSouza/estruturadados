@@ -9,6 +9,6 @@ public class IntroducaoFila {
 
 		System.out.println(fila.estaVazia());
 		System.out.println(fila.tamanho());
-
+		
 	}
 }

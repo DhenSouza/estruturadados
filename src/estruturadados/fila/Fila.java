@@ -20,7 +20,10 @@ public class Fila<T> extends EstruturaEstatica<T> implements IFila<T>{
 
 	@Override
 	public T espiar() {
-		return null;
+		if (this.estaVazia()) {
+			return null;
+		}
+		return this.elementos[tamanho-1];
 	}
 
 	@Override
