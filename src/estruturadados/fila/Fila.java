@@ -3,8 +3,8 @@ package estruturadados.fila;
 import estruturadados.base.EstruturaEstatica;
 import estruturadados.interfaces.IFila;
 
-public class Fila<T> extends EstruturaEstatica<T> implements IFila<T>{
-	
+public class Fila<T> extends EstruturaEstatica<T> implements IFila<T> {
+
 	public Fila() {
 		super();
 	}
@@ -15,6 +15,14 @@ public class Fila<T> extends EstruturaEstatica<T> implements IFila<T>{
 
 	@Override
 	public void enfileira(T elemento) {
+
+		// uoutro metodo de fazer é
+		// this.elementos[this.tamanho] = elemento
+		// this.tamanho++
+
+		// um modo de fazer
+		// this.elementos[this.tamanho++] = elemento;
+
 		this.adiciona(elemento);
 	}
 
@@ -23,13 +31,22 @@ public class Fila<T> extends EstruturaEstatica<T> implements IFila<T>{
 		if (this.estaVazia()) {
 			return null;
 		}
-		return this.elementos[tamanho-1];
+		return this.elementos[0];
 	}
 
 	@Override
 	public T desenfileira() {
-		// TODO Auto-generated method stub
-		return null;
+
+		final Integer POSITION = 0;
+
+		if (this.estaVazia()) {
+			return null;
+		}
+
+		T elementoASerRemovido = this.elementos[POSITION];
+		this.remove(POSITION);
+
+		return elementoASerRemovido;
 	}
 
 }

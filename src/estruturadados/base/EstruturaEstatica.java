@@ -43,15 +43,19 @@ public class EstruturaEstatica<T> {
 	}
 
 	public void remove(Integer posicao) {
-		// TODO Auto-generated method stub
+		this.verificarPosicaoValida(posicao);
 
+		for (int i = posicao; i < tamanho - 1; i++) {
+			this.elementos[i] = this.elementos[i + 1];
+		}
+		this.tamanho--;
 	}
 
 	@SuppressWarnings("unchecked")
-	private void aumentaCapacidade(){
-		if (this.tamanho == this.elementos.length){
+	private void aumentaCapacidade() {
+		if (this.tamanho == this.elementos.length) {
 			T[] elementosNovos = (T[]) new Object[this.elementos.length * 2];
-			for (int i=0; i<this.elementos.length; i++){
+			for (int i = 0; i < this.elementos.length; i++) {
 				elementosNovos[i] = this.elementos[i];
 			}
 			this.elementos = elementosNovos;
@@ -71,7 +75,6 @@ public class EstruturaEstatica<T> {
 			throw new IllegalArgumentException("Posição inválida!");
 		}
 	}
-	
 
 	@Override
 	public String toString() {
